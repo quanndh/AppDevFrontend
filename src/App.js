@@ -3,7 +3,6 @@ import Main from "./views/Main";
 import {BrowserRouter as Router, Route } from "react-router-dom";
 import Login from './views/Login'
 import './App.css';
-;
 
 class App extends Component {
   render(){
