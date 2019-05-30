@@ -1,33 +1,83 @@
-.App {
-  text-align: center;
+.statistic{
+    border: "1.3px solid black";
+    border-radius: "5px";
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.btn:hover{
+    background-color: #1890ff !important;
+    color: white !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.statistic:hover{
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+input {
+    padding: .5rem;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #ccc;
   }
-  to {
-    transform: rotate(360deg);
+  
+  input:focus {
+    border-color: #007eff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+      0 0 0 3px rgba(0, 126, 255, 0.1);
+    outline: none;
   }
-}
+  
+  input.error {
+    border-color: red;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: .5rem;
+  }
+  
+  .input-feedback {
+    color: red;
+    margin-top: .25rem;
+  }
+  
+  button {
+    max-width: 150px;
+    margin: 20px 0;
+    padding: 12px 20px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #08c;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  
+  button:disabled {
+    opacity: .5;
+    cursor: not-allowed !important;
+  }
+  
+  button + button {
+    margin-left: .5rem;
+  }
+  
+  button.outline {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    color: #555;
+  }
+
+  .bg-login{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("https://www.fpt.sk/wp-content/uploads/2015/10/fpt_banner31.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
