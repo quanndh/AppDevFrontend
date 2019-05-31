@@ -77,7 +77,13 @@ class BaseLayout extends Component {
                 <Layout>
 
                     <Header style={{ background: '#fff', padding: 0, display: "flex", justifyContent: "flex-end", alignItems: "center" }} >
-                        <Button ghost className="btn" type="primary" style={{marginRight: "14px"}}>Log out</Button>
+                        <Button 
+                        ghost 
+                        className="btn" 
+                        type="primary" 
+                        style={{marginRight: "14px", height: "40px", width: "100px"}}>
+                            Log out
+                        </Button>
                     </Header>
 
                     <Content style={{ margin: '0 16px' }}>
@@ -86,7 +92,6 @@ class BaseLayout extends Component {
                         <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
                         <div style={{ padding: 24, background: '#fff', minHeight: '600px' }}>
-                            Content
                             <Statistics statistic={this.state.statistics}/>
                         </div>
 

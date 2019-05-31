@@ -77,7 +77,7 @@ class Login extends Component {
                                     <div className="input-feedback">{errors.password}</div>
                                 )}
 
-                                <Button className="btn" type="primary submit" ghost>
+                                <Button className="btn" type="primary submit" ghost style={{height: "40px", width: "100px"}}>
                                     Log in
                                 </Button>
 
