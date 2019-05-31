@@ -39,7 +39,7 @@ class Login extends Component {
                     <div className="bg-login" style={{width: "100%", height: "100vh", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#ececec"}}> 
 
                         <Card  style={{width: "35%"}}>
-                            <h1>FPT TRAINING SYSTEM</h1>
+                            <h1>GREENWICH TRAINING SYSTEM</h1>
                             <form onSubmit={handleSubmit} >
                                 <label htmlFor="email" style={{ display: 'block' }}>
                                     Name
