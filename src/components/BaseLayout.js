@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
+import { Avatar } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -66,6 +67,7 @@ class BaseLayout extends Component {
                 <Layout>
 
                     <Header style={{ background: '#fff', padding: 0, display: "flex", justifyContent: "flex-end", alignItems: "center" }} >
+                        <Avatar size="large" icon="user" />
                         <Button 
                         ghost 
                         className="btn" 
