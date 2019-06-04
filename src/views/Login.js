@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {Card, Button} from "antd";
 import axios from "axios";
+import ParticleComponent from '../components/ParticleComponent';
 
 class Login extends Component {
     constructor(props){
@@ -13,6 +14,7 @@ class Login extends Component {
     }
     render() {
         return (
+         
             <Formik
                 onSubmit={(values, { setSubmitting }) => {
                     console.log("c");
@@ -50,9 +52,9 @@ class Login extends Component {
                     handleSubmit,
                     } = props;
                     return (
-                    <div  className="bg-login" style={{width: "100%", height: "100vh", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#ececec"}}> 
-
-                        <Card  style={{width: "35%"}}>
+                        
+                    <div style={{width: "100%", height: "100%", margin: "10% 0", display: "flex",flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: "#ececec"}}> 
+                        <Card  style={{width: "35%", zIndex: "1"}}>
                             <h1>GREENWICH TRAINING SYSTEM</h1>
                             <form onSubmit={handleSubmit} >
                                 <label htmlFor="email" style={{ display: 'block' }}>
@@ -95,11 +97,12 @@ class Login extends Component {
 
                             </form>
                         </Card>
+                        <ParticleComponent />
                     </div>
+                   
                     );
                 }}
         </Formik>
-
         );
     }
 }

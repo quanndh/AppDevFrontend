@@ -1,3 +1,9 @@
+html,body{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0
+}
 .statistic{
     border: "1.3px solid black";
     border-radius: "5px";
@@ -76,11 +82,7 @@ input {
     color: #555;
   }
 
-  .bg-login{
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5)), url("https://images6.alphacoders.com/366/366872.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
 
   .logo {
     height: 32px;
