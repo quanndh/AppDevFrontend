@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
+import { Avatar } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -53,9 +54,16 @@ class BaseLayout extends Component {
                 </SubMenu>
               </Menu>
             </Sider>
-            <Layout>
-              <Header style={{ background: '#fff', padding: 0, display: 'flex', justifyContent: 'flex-end' }}>
-            </Header>
+                <Header style={{ background: '#fff', padding: 0, display: "flex", justifyContent: "flex-end", alignItems: "center" }} >
+                    <Avatar size="large" icon="user" />
+                    <Button 
+                    ghost 
+                    className="btn" 
+                    type="primary" 
+                    style={{marginRight: "14px", height: "40px", width: "100px"}}>
+                        Log out
+                    </Button>
+                </Header>
               <Content style={{ margin: '0 16px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
                   <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -64,7 +72,6 @@ class BaseLayout extends Component {
                 <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
               </Content>
               <Footer style={{ textAlign: 'center' }}>Ant Design ©2019 Created by FPT Team</Footer>
-            </Layout>
           </Layout>
         );
       }
