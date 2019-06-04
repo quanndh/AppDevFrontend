@@ -81,3 +81,13 @@ input {
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+    background-image:    url("https://seeklogo.com/images/F/fpt-logo-5B8F17203A-seeklogo.com.png");
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center; 
+  }

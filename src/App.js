@@ -9,8 +9,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          
-
           <Route path="/" exact  render={props => {
             return <Login {...props}/>
           }}></Route>
