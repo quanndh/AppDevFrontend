@@ -34,14 +34,12 @@ class BaseLayout extends Component {
                 <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                 <div className="logo" ></div>
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                    
                     <Menu.Item key="1">
-                    <Icon type="pie-chart" />
-                    <span>Option 1</span>
+                        <Icon type="pie-chart" />
+                        <span>Quan Nguyen</span>
                     </Menu.Item>
-                    <Menu.Item key="2">
-                    <Icon type="desktop" />
-                    <span>Option 2</span>
-                    </Menu.Item>
+                   
                     <SubMenu
                     key="sub1"
                     title={
