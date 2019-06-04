@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {Card, Button} from "antd";
+import axios from "axios";
 
 class Login extends Component {
     constructor(props){
@@ -14,10 +15,23 @@ class Login extends Component {
         return (
             <Formik
                 onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                    }, 500);
+                    console.log("c");
+                    axios.post("http://localhost:6969/api/auth", {
+                        name: values.name,
+                        password: values.password
+                    }, {
+                        withCredentials: true
+                    })
+                    .then(res => {
+                        console.log("A")
+                        window.location.href = "http://localhost:3000/dashboard"
+                    })
+                    .catch((err) => {this.setState({
+                            message: "Wrong name or password",
+                        })
+                        console.log(err)
+                    })
+                    console.log("ye")
                 }}
                 validationSchema={Yup.object().shape({
                     name: Yup.string()
@@ -36,7 +50,7 @@ class Login extends Component {
                     handleSubmit,
                     } = props;
                     return (
-                    <div className="bg-login" style={{width: "100%", height: "100vh", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#ececec"}}> 
+                    <div  className="bg-login" style={{width: "100%", height: "100vh", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", backgroundColor: "#ececec"}}> 
 
                         <Card  style={{width: "35%"}}>
                             <h1>GREENWICH TRAINING SYSTEM</h1>
@@ -76,10 +90,8 @@ class Login extends Component {
                                 {errors.password && touched.password && (
                                     <div className="input-feedback">{errors.password}</div>
                                 )}
-
-                                <Button className="btn" type="primary submit" ghost style={{height: "40px", width: "100px"}}>
-                                    Log in
-                                </Button>
+                                <br />
+                                <input type="submit" className="btn" value="Login" style={{height: "40px", width: "100px", background: "white", color: "black", transition: "0.3s ease"}}/>
 
                             </form>
                         </Card>

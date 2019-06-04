@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Avatar, Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
 import Statistics from './Statistic';
+import axios from "axios";
+
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -27,6 +29,14 @@ class BaseLayout extends Component {
         console.log(collapsed);
         this.setState({ collapsed });
     };
+
+    logOut = () => {
+        axios.delete("http://localhost:6969/api/auth", {
+            withCredentials: true
+        })
+        .then(res => window.location.href = "http://localhost:3000")
+        .catch(err => console.log(err))
+    }
 
     render() {
         return (
@@ -73,6 +83,7 @@ class BaseLayout extends Component {
                         <Avatar style={{margin: '0 16px'}} size="large" icon="user" />
                         <Button 
                         ghost 
+                        onClick={this.logOut}
                         className="btn" 
                         type="primary" 
                         style={{marginRight: "14px", height: "40px", width: "100px"}}>
