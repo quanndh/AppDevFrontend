@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
+import { Avatar, Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
 import Statistics from './Statistic';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -77,6 +77,7 @@ class BaseLayout extends Component {
                 <Layout>
 
                     <Header style={{ background: '#fff', padding: 0, display: "flex", justifyContent: "flex-end", alignItems: "center" }} >
+                        <Avatar style={{margin: '0 16px'}} size="large" icon="user" />
                         <Button 
                         ghost 
                         className="btn" 
