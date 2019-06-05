@@ -5,7 +5,7 @@ class Statistics extends Component {
 
     render() {
         const displayStatistic = this.props.statistic ? this.props.statistic.map((item, index) => (
-            <Col span={6} key={index}>
+            <Col span={24} key={index} style={{marginBottom: "32px"}}>
                 <Card className="statistic" style={{border: "1.3px solid black", borderRadius: "4px"}}>
                 <Statistic
                     style={{fontWeight: "500"}}
@@ -18,9 +18,10 @@ class Statistics extends Component {
             )
         ) : "Nothing"
         return (
-            <Row gutter={32}>
+            <Col span={6}>
                 {displayStatistic}
-            </Row>
+            </Col>
+                
         );
     }
 }

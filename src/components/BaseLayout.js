@@ -30,16 +30,16 @@ class BaseLayout extends Component {
 
     render() {
         const { user } = this.props;
-
+        const { collapsed } = this.state
         return (
             <Layout style={{ minHeight: '100vh' }} >
 
-                <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+                <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
 
                     <div className="logo" ></div>
 
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <MenuContent />
+                        <MenuContent collapsed={collapsed}/>
                     </Menu>
 
                 </Sider>

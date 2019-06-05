@@ -8,7 +8,7 @@ const { SubMenu } = Menu;;
 
 class MenuContent extends Component {
     render() {
-        
+        const { collapsed } = this.props;
         return (
                 <UserContext.Consumer>
                     {
@@ -16,8 +16,8 @@ class MenuContent extends Component {
                             if(user.role === "admin"){
                                 return <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                                             <Menu.Item key="1">
-                                                
-                                                <Link className="link" to={"/dashboard"}><Icon type="home"/>Home</Link>
+                                                {collapsed !== true && <Link className="link" to={"/dashboard"}><Icon type="home"/>Home</Link>}
+                                                {collapsed === true && <Link className="link" to={"/dashboard"}><Icon type="home"/></Link>}
                                             </Menu.Item>
                                             
                                             <SubMenu
@@ -37,7 +37,7 @@ class MenuContent extends Component {
                                             key="sub2"
                                             title={
                                                 <span>
-                                                    <Icon type="user" />
+                                                    <Icon type="team" />
                                                     <span>Trainer</span>
                                                 </span>
                                             }
@@ -50,7 +50,8 @@ class MenuContent extends Component {
                             } else if(user.role === "staff"){
                                 return <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                                             <Menu.Item key="1">
-                                                <Link className="link" to={"/dashboard"}><Icon type="home"/>Home</Link>
+                                                {collapsed !== true && <Link className="link" to={"/dashboard"}><Icon type="home"/>Home</Link>}
+                                                {collapsed === true && <Link className="link" to={"/dashboard"}><Icon type="home"/></Link>}
                                             </Menu.Item>
                                             
                                             <SubMenu
@@ -78,6 +79,25 @@ class MenuContent extends Component {
                                                 <Menu.Item key="4"><Link className="link" to="/add-trainee"><Icon type="usergroup-add" />Create</Link></Menu.Item>
                                                 <Menu.Item key="5"><Link className="link" to="/detail-trainee"><Icon type="team"/>Details</Link></Menu.Item>                    
                                             </SubMenu>
+                                        </Menu>
+                            } else if(user.role === "trainer"){
+                                return <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                                            <Menu.Item key="1">
+                                                {collapsed !== true && <Link className="link" to={"/dashboard"}><Icon type="home"/>Home</Link>}
+                                                {collapsed === true && <Link className="link" to={"/dashboard"}><Icon type="home"/></Link>}
+                                            </Menu.Item>
+                                                                      
+                                            <Menu.Item key="2">
+                                                {collapsed !== true && <Link className="link" to="/profile-trainer"><Icon type="user" />My Profile</Link>}
+                                                {collapsed === true && <Link className="link" to={"/profile-trainer"}><Icon type="user"/></Link>}  
+                                            </Menu.Item>
+
+                                            <Menu.Item key="3">
+                                                {collapsed !== true && <Link className="link" to="/course-trainer"><Icon type="team"/>My Courses</Link>}
+                                                {collapsed === true && <Link className="link" to={"/course-trainer"}><Icon type="team"/></Link>}
+                                            </Menu.Item>
+                    
+                                          
                                         </Menu>
                             }
                         }

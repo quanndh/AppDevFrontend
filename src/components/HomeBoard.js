@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {Breadcrumb} from 'antd'
+import {Breadcrumb, Col, Row} from 'antd'
 import Statistics from '../components/Statistic';
-
+import { Calendar } from 'antd';
 
 export default class HomeBoard extends Component {
     constructor(props){
@@ -24,10 +24,17 @@ export default class HomeBoard extends Component {
         return (
             <div>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                    <Breadcrumb.Item>Home</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{ padding: 24, background: '#fff', minHeight: '600px' }}>
-                    <Statistics statistic={this.state.statistics}/>
+                    <Row gutter={16}>
+                        <Col span={18}>
+                            <Calendar  style={{width: "100%"}}/>
+                        </Col> 
+                        
+                        <Statistics statistic={this.state.statistics}/>
+                    </Row>
+                    
                 </div>
             </div>
         )
