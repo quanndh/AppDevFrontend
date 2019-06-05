@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {Layout, Breadcrumb} from 'antd'
+import {Breadcrumb} from 'antd'
 import Statistics from '../components/Statistic';
-const {Content} = Layout
+
 
 export default class HomeBoard extends Component {
     constructor(props){

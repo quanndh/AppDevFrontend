@@ -13,11 +13,17 @@ class Main extends Component {
               ({user}) => (
                  
                     <BrowserRouter>
-                        <BaseLayout>
+                        <BaseLayout user={user}>
                             <Switch>
+
                                 <Route exact path = "/dashboard" render={props => {
                                     return <HomeBoard user={user} {...props}/>
                                 }}/>
+
+                                <Route exact path="/add-staff" render={props => {
+                                    return <h1>aa</h1>
+                                }}/>
+
                             </Switch>
                         </BaseLayout>
                     </BrowserRouter>

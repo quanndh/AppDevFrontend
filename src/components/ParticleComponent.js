@@ -12,7 +12,7 @@ export default class ParticleComponent extends Component {
               width: "100%",
               height: "150vh",
               background: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5))",
-              background: 'url("https://images6.alphacoders.com/366/366872.jpg")',
+              background: ' url("https://images6.alphacoders.com/366/366872.jpg")',
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover"
             }}

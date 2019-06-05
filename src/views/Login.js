@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import {Card, Button} from "antd";
+import {Card} from "antd";
 import axios from "axios";
 import ParticleComponent from '../components/ParticleComponent';
 
