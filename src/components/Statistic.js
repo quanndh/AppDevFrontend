@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Statistic, Card, Row, Col } from 'antd';
+import { Statistic, Card, Col } from 'antd';
 
 class Statistics extends Component {
 

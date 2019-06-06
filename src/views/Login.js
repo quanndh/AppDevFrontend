@@ -17,16 +17,15 @@ class Login extends Component {
          
             <Formik
                 onSubmit={(values, { setSubmitting }) => {
-                    console.log("c");
                     axios.post("http://localhost:6969/api/auth", {
                         name: values.name,
                         password: values.password
                     }, {
                         withCredentials: true
                     })
-                    .then(res => {
-                        console.log("A")
-                        window.location.href = "http://localhost:3000/dashboard"
+                    .then(data => {
+                        window.location.href = "http://localhost:3000/dashboard";
+                        localStorage.setItem("role", data.data.role)
                     })
                     .catch((err) => {this.setState({
                             message: "Wrong name or password",

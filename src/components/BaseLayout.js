@@ -14,7 +14,7 @@ class BaseLayout extends Component {
 
         }
     }
-    
+
     onCollapse = collapsed => {
         console.log(collapsed);
         this.setState({ collapsed });
@@ -24,7 +24,10 @@ class BaseLayout extends Component {
         axios.delete("http://localhost:6969/api/auth", {
             withCredentials: true
         })
-        .then(res => window.location.href = "http://localhost:3000")
+        .then(res => {
+            window.location.href = "http://localhost:3000";
+            localStorage.removeItem("role")
+        })
         .catch(err => console.log(err))
     }
 

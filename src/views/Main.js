@@ -17,7 +17,7 @@ class Main extends Component {
                             <Switch>
 
                                 <Route exact path = "/dashboard" render={props => {
-                                    return <HomeBoard user={user} {...props}/>
+                                    return <HomeBoard user={user}  {...props}/>
                                 }}/>
 
                                 <Route exact path="/add-staff" render={props => {

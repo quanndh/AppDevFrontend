@@ -4,8 +4,8 @@ import axios from 'axios';
 const UserContext = React.createContext();
 
 class UserProvider extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             user: {},
         }
@@ -16,7 +16,9 @@ class UserProvider extends Component {
         axios.get("http://localhost:6969/api/auth/me", {
             withCredentials: true
         })
-        .then(data => this.setState({user: data.data.message}))
+        .then(data => {
+            this.setState({user: data.data.message});
+        })
         .catch(err => console.log(err))
     }
 
