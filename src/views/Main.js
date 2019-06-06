@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import BaseLayout from '../components/BaseLayout';
 import HomeBoard from '../components/HomeBoard'
 import {UserContext} from "../contexts/User";
+import StaffForm from '../components/StaffForm';
 
 class Main extends Component {
 
@@ -21,7 +22,7 @@ class Main extends Component {
                                 }}/>
 
                                 <Route exact path="/add-staff" render={props => {
-                                    return <h1>aa</h1>
+                                    return <StaffForm {...props} />
                                 }}/>
 
                             </Switch>
