@@ -16,7 +16,7 @@ class Statistics extends Component {
                 </Card>
             </Col>
             )
-        ) : "Nothing"
+        ) : ""
         return (
             <Col span={6}>
                 {displayStatistic}
