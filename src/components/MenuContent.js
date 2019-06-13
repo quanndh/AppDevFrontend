@@ -21,11 +21,11 @@ class MenuContent extends Component {
                                             </Menu.Item>
                                             
                                             <Menu.Item key="2">
-                                                {collapsed !== true && <Link className="link" to={"/create"}><Icon type="usergroup-add"/>Home</Link>}
+                                                {collapsed !== true && <Link className="link" to={"/create"}><Icon type="usergroup-add"/>Create</Link>}
                                                 {collapsed === true && <Link className="link" to={"/create"}><Icon type="usergroup-add"/></Link>}
                                             </Menu.Item>
                                             <Menu.Item key="3">
-                                                {collapsed !== true && <Link className="link" to={"/detail"}><Icon type="team"/>Home</Link>}
+                                                {collapsed !== true && <Link className="link" to={"/detail"}><Icon type="team"/>Details</Link>}
                                                 {collapsed === true && <Link className="link" to={"/detail"}><Icon type="team"/></Link>}
                                             </Menu.Item>
 
