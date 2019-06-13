@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Select } from 'antd';
 import {Breadcrumb} from 'antd'
-import StaffForm from './StaffForm';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
