@@ -32,7 +32,7 @@ class Main extends Component {
                                     return <Detail user={user} {...props} />
                                 }}/>
 
-                                <Route exact path="/view/:userid" render={props => {
+                                <Route exact path="/detail/:userid" render={props => {
                                     return <UserDetail user={user} {...props} />
                                 }}/>
 

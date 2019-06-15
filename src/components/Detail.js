@@ -67,11 +67,11 @@ class Detail extends Component {
         return (
             <div>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item>Home/Create</Breadcrumb.Item>
+                    <Breadcrumb.Item>Home / Detail</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{ padding: 24, background: '#fff', minHeight: '600px' }}>
                     <h1>ACCOUNT MANAGEMENT</h1>
-                    <Table pagination={{position: "top", pageSize: "8"}} size="medium"  dataSource={data} style={{height: "60%"}}>
+                    <Table pagination={{position: "top", pageSize: "6"}} size="medium"  dataSource={data} style={{height: "60%"}}>
                         <Column title="Name" dataIndex="name" key="name" />
 
                         <Column title="Role" dataIndex="role" key="role" />
@@ -81,7 +81,7 @@ class Detail extends Component {
                         key="action"
                         render={(record) => (
                             <span>
-                                <Button><Link to={"view/" + record.id}>View</Link></Button>
+                                <Button><Link to={"detail/" + record.id}>View</Link></Button>
                                 <Divider type="vertical" />
                                 <Button  onClick={() => this.deleteAcc(record.id)}>Delete</Button>
                             </span>
