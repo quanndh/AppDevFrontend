@@ -25,8 +25,8 @@ class MenuContent extends Component {
                                                 {collapsed === true && <Link className="link" to={"/create"}><Icon type="usergroup-add"/></Link>}
                                             </Menu.Item>
                                             <Menu.Item key="3">
-                                                {collapsed !== true && <Link className="link" to={"/detail"}><Icon type="team"/>Details</Link>}
-                                                {collapsed === true && <Link className="link" to={"/detail"}><Icon type="team"/></Link>}
+                                                {collapsed !== true && <Link className="link" to={"/detail"}><Icon type="read" />Details</Link>}
+                                                {collapsed === true && <Link className="link" to={"/detail"}><Icon type="read" /></Link>}
                                             </Menu.Item>
 
                                         </Menu>
@@ -42,25 +42,25 @@ class MenuContent extends Component {
                                             title={
                                                 <span>
                                                     <Icon type="user" />
-                                                    <span>Trainer</span>
+                                                    <span>Create</span>
                                                 </span>
                                             }
                                             >
-                                                <Menu.Item key="2"><Link className="link" to="/create"><Icon type="usergroup-add" />Create</Link></Menu.Item>
-                                                <Menu.Item key="3"><Link className="link" to="/detail"><Icon type="team"/>Details</Link></Menu.Item>
+                                                <Menu.Item key="2"><Link className="link" to="/create"><Icon type="usergroup-add" />Account</Link></Menu.Item>
+                                                <Menu.Item key="3"><Link className="link" to="/add-course"><Icon type="schedule" />Course</Link></Menu.Item>
                                             </SubMenu>
                     
                                             <SubMenu
                                             key="sub2"
                                             title={
                                                 <span>
-                                                    <Icon type="user" />
-                                                    <span>Trainee</span>
+                                                    <Icon type="read" />
+                                                    <span>Detail</span>
                                                 </span>
                                             }
                                             >
-                                                <Menu.Item key="4"><Link className="link" to="/create"><Icon type="usergroup-add" />Create</Link></Menu.Item>
-                                                <Menu.Item key="5"><Link className="link" to="/detail"><Icon type="team"/>Details</Link></Menu.Item>                    
+                                                <Menu.Item key="4"><Link className="link" to="/detail"><Icon type="user" />Account</Link></Menu.Item>
+                                                <Menu.Item key="5"><Link className="link" to="/course-detail"><Icon type="table"/>Course</Link></Menu.Item>                    
                                             </SubMenu>
                                         </Menu>
                             } else if(user.role === "trainer"){

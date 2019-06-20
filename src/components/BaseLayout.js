@@ -65,7 +65,7 @@ class BaseLayout extends Component {
                         {this.props.children}
                     </Content>
 
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                    <Footer style={{ textAlign: 'center' }}>Built by Nguyen Do Hong Quan - GCH17467</Footer>
 
                 </Layout>
             </Layout>

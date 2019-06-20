@@ -17,7 +17,9 @@ class HomeBoard extends Component {
     componentWillMount() {
         let role = localStorage.getItem("role");
         if(role === "admin"){
-            axios.get("http://localhost:6969/api/users/role/" + role)
+            axios.get("http://localhost:6969/api/users/role/" + role, {
+                withCredentials: true
+            })
             .then(data => {
                 let statistic = [
                     {title: "Staff", value: data.data.staffCount},
@@ -29,7 +31,9 @@ class HomeBoard extends Component {
             })
             .catch(err => console.log(err))
         } else if(role === "staff"){
-            axios.get("http://localhost:6969/api/users/role/" + role)
+            axios.get("http://localhost:6969/api/users/role/" + role, {
+                withCredentials: true
+            })
             .then(data => {
                 let statistic = [
                     {title: "Trainer", value: data.data.trainerCount},

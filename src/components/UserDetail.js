@@ -21,8 +21,11 @@ class UserDetail extends Component {
     }
 
     componentDidMount() { 
-        axios.get("http://localhost:6969/api/users/" + this.props.match.params.userid)
+        axios.get("http://localhost:6969/api/users/" + this.props.match.params.userid, {
+            withCredentials: true
+        })
         .then(data => {
+            console.log(data)
             this.setState({
                 id: data.data.data._id,
                 name: data.data.data.name,
