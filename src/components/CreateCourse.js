@@ -44,7 +44,7 @@ class CreateCourse extends Component {
         return (
             <div>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item>Home / Create / Course</Breadcrumb.Item>
+                    <Breadcrumb.Item>Home / Create Course</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{ padding: 24, background: '#fff', minHeight: '600px' }}>
                     <h1>CREATE A NEW COURSE</h1>

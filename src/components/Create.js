@@ -28,7 +28,7 @@ class Create extends Component {
         return (
             <div>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item>Home/Create</Breadcrumb.Item>
+                    <Breadcrumb.Item>Home / Create Account</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{ padding: 24, background: '#fff', minHeight: '600px' }}>
                     <h1>CREATE A NEW ACCOUNT</h1>

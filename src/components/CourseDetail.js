@@ -21,6 +21,7 @@ class CourseDetail extends Component {
             trainers: [],
             trainees: [],
             trainee: [],
+            updateTrainee: [],
             trainer: "",
            
         }
@@ -74,17 +75,37 @@ class CourseDetail extends Component {
     }
 
     changeTrainer = (value) => {
+        console.log(value)
         this.setState({trainer: value})
     }
+
+    changeTrainee = (value) => {
+        this.setState({updateTrainee: value})
+    }
+
 
     commitUpdate = (index) => {
         axios.put("http://localhost:6969/api/courses/" + this.state.id, {
                 name: this.state.name,
                 topic: this.state.topic,
                 trainer: this.state.trainer,
-                trainee: this.state.trainee
+                trainee: this.state.updateTrainee
         }, {withCredentials: true})
         .then((data) => {
+            axios.get("http://localhost:6969/api/courses/" + this.props.match.params.courseid, {
+            withCredentials: true
+            })
+            .then(data => {
+                if(data.data.data.trainer === null) data.data.data.trainer = {name: "Empty"}
+                this.setState({
+                    id: data.data.data._id,
+                    name: data.data.data.name,
+                    topic: data.data.data.topic,
+                    trainer: data.data.data.trainer,
+                    trainee: data.data.data.trainee
+                })
+            })
+            .catch(err => console.log(err))
             this.toggleUpdate(index)
         })
         .catch(err => console.log(err))
@@ -94,35 +115,35 @@ class CourseDetail extends Component {
         })
         .then(data => this.setState({trainer: data.data.data}))
         .catch(err => console.log(err))
+
+        axios.get("http://localhost:6969/api/users/select/trainee", {
+            withCredentials: true
+        })
+        .then(data => this.setState({trainee: data.data.data}))
+        .catch(err => console.log(err))
     }
 
     render() {
         const { id, name, topic, trainers, trainer, trainee, status, trainees } = this.state;
-        
+
         let remainTrainee = [];
-
-        console.log(trainer.name)
-
-        if(_.isEmpty(trainees) || _.isEmpty(trainee)){
+        if(_.isEmpty(trainee)){
+            remainTrainee = trainees;
+        }
+        else if(_.isEmpty(trainees) || _.isEmpty(trainee)){
             console.log("empty")
         } else {
             for(let i = 0; i < trainees.length; i++){
             let same = false;
                 for(let j = 0; j < trainee.length; j++){
-                    console.log(trainees[i], trainee[j])
                     if(_.isEqual(trainees[i], trainee[j])){
                         same = true;
                     }
-                    else {
-                        console.log("a")
-                    }
                 }
                 if(same === false){
-                    console.log("same")
                     remainTrainee.push(trainees[i])
                 }
             }
-            console.log(remainTrainee)
         }
         
         
@@ -138,7 +159,7 @@ class CourseDetail extends Component {
         return (
             <div>
                <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item>Home / User Details</Breadcrumb.Item>
+                    <Breadcrumb.Item>Home / Course Details</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{ padding: 24, background: '#fff', minHeight: '600px' }}>
                     <Row >
@@ -154,7 +175,7 @@ class CourseDetail extends Component {
                                 <h4>{id}</h4>
 
                                 {
-                                    status[0] === false ? <h4>{name} <Icon type="edit" onClick={() => this.toggleUpdate(0)}/></h4> : (
+                                    status[0] === false ? <h4>{name} {this.props.user.role !== "trainer" && <Icon type="edit" onClick={() => this.toggleUpdate(0)}/>}</h4> : (
                                         <div>
                                             <input value={name} onChange={(e)=>this.changeName(e)}/><Icon type="check" onClick={()=>this.commitUpdate(0)}/> <Icon type="close" onClick={() => this.toggleUpdate(0)}/>
                                         </div>
@@ -162,7 +183,7 @@ class CourseDetail extends Component {
                                 }
 
                                 {
-                                    status[1] === false ? <h4>{topic} <Icon type="edit" onClick={()=>this.toggleUpdate(1)}/></h4> : (
+                                    status[1] === false ? <h4>{topic} {this.props.user.role !== "trainer" &&<Icon type="edit" onClick={()=>this.toggleUpdate(1)}/>}</h4> : (
                                         <div>
                                             <Select defaultValue={topic} style={{ width: 200 }} onChange={this.changeTopic}>
                                                 <Option id="topic" value="Topic" disabled>Topic</Option>
@@ -179,7 +200,7 @@ class CourseDetail extends Component {
 
                                 
                                 {
-                                    status[2] === false ? <h4>{trainer.name} <Icon type="edit" onClick={()=>this.toggleUpdate(2)}/></h4> : (
+                                    status[2] === false ? <h4>{trainer.name} {this.props.user.role !== "trainer" &&<Icon type="edit" onClick={()=>this.toggleUpdate(2)}/>}</h4> : (
                                         <div>
                                             <Select name="trainer" defaultValue={trainer.name} style={{ width: 200, marginBottom: "20px" }} onChange={this.changeTrainer}>
                                                 <Option id="trainer" value="Trainer" disabled>Trainer</Option>
@@ -195,6 +216,7 @@ class CourseDetail extends Component {
                                 {   
                                     status[3] === false ? 
                                     <div>
+                                        {this.props.user.role !== "trainer" &&
                                         <Button  
                                         onClick={()=>this.toggleUpdate(3)}
                                         type="primary"  
@@ -203,12 +225,12 @@ class CourseDetail extends Component {
                                         icon="plus"
                                         shape="circle"
                                         style={{marginBottom: "20px"}}
-                                        /> 
+                                        /> }
                                     </div>
                                     
                                     : (
                                         <div>
-                                            <Select name="trainee" style={{ width: 200, marginTop: "20px" }} onChange={this.changeTrainer}>
+                                            <Select mode="multiple" name="trainee" style={{ width: 200, marginTop: "20px" }} onChange={this.changeTrainee}>
                                                 <Option id="trainee" value="Trainee" disabled>Trainee</Option>
                                                 {selectTrainee}
                                             </Select>

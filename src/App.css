@@ -5,8 +5,11 @@ html,body{
   margin: 0
 }
 .statistic{
-    border: "1.3px solid black";
+    border: "1.5px solid black";
     border-radius: "5px";
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
 }
 
 .btn:hover{

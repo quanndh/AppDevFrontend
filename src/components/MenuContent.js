@@ -71,16 +71,9 @@ class MenuContent extends Component {
                                             </Menu.Item>
                                                                       
                                             <Menu.Item key="2">
-                                                {collapsed !== true && <Link className="link" to="/profile-trainer"><Icon type="user" />My Profile</Link>}
-                                                {collapsed === true && <Link className="link" to="/profile-trainer"><Icon type="user"/></Link>}  
-                                            </Menu.Item>
-
-                                            <Menu.Item key="3">
-                                                {collapsed !== true && <Link className="link" to="/course-trainer"><Icon type="team"/>My Courses</Link>}
-                                                {collapsed === true && <Link className="link" to="/course-trainer"><Icon type="team"/></Link>}
-                                            </Menu.Item>
-                    
-                                          
+                                                {collapsed !== true && <Link className="link" to={"/detail/" + user._id}><Icon type="user" />My Profile</Link>}
+                                                {collapsed === true && <Link className="link" to={"/detail/" + user._id}><Icon type="user"/></Link>}  
+                                            </Menu.Item>                                     
                                         </Menu>
                             }
                         }

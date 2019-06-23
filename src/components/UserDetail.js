@@ -80,7 +80,6 @@ class UserDetail extends Component {
                             <h4>Id:</h4>
                             <h4>Name:</h4>
                             <h4>Role</h4>
-                            <h4>Course</h4>
                         </Col>
                         <Col span={10}>
                             <h4>{id}</h4>
@@ -106,14 +105,6 @@ class UserDetail extends Component {
                                 )
                             }
 
-                            
-                            {
-                                status[2] === false ? <h4>{course} <Icon type="edit" onClick={()=>this.toggleUpdate(2)}/></h4> : (
-                                    <div>
-                                        <input value={course}/> <Icon type="check" /> <Icon type="close" onClick={() => this.toggleUpdate(2)}/>
-                                    </div>
-                                )
-                            }
                            
                         </Col>
                     </Row>
