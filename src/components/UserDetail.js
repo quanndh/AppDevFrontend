@@ -85,7 +85,7 @@ class UserDetail extends Component {
                             <h4>{id}</h4>
 
                             {
-                                status[0] === false ? <h4>{name} <Icon type="edit" onClick={() => this.toggleUpdate(0)}/></h4> : (
+                                status[0] === false ? <h4>{name}{this.props.user.role !== "trainer" && <Icon type="edit" onClick={() => this.toggleUpdate(0)}/>}</h4> : (
                                     <div>
                                         <input value={name} onChange={(e)=>this.changeName(e)}/><Icon type="check" onClick={()=>this.commitUpdate(0)}/> <Icon type="close" onClick={() => this.toggleUpdate(0)}/>
                                     </div>
@@ -93,7 +93,7 @@ class UserDetail extends Component {
                             }
 
                             {
-                                status[1] === false ? <h4>{role} <Icon type="edit" onClick={()=>this.toggleUpdate(1)}/></h4> : (
+                                status[1] === false ? <h4>{role}{this.props.user.role !== "trainer" &&  <Icon type="edit" onClick={()=>this.toggleUpdate(1)}/>}</h4> : (
                                     <div>
                                         <Select defaultValue={role} style={{ width: 120 }} onChange={this.changeRole}>
                                             <Option value="trainer">Trainer</Option>
