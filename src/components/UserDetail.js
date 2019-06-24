@@ -68,7 +68,7 @@ class UserDetail extends Component {
     }
 
     render() {
-        const { id, name, role, course, status } = this.state;
+        const { id, name, role, status } = this.state;
         return (
             <div>
                <Breadcrumb style={{ margin: '16px 0' }}>
