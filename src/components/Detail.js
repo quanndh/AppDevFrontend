@@ -32,6 +32,7 @@ class Detail extends Component {
     }
 
     deleteAcc = (id) => {
+        console.log(id)
         axios.delete("http://localhost:6969/api/users/" + id +"/"+this.props.user.role, {
             withCredentials: true
         })
@@ -47,6 +48,12 @@ class Detail extends Component {
             })
         })
         .catch(err => console.log(err))
+    }
+
+    confirmDelete = (id) => {
+        if(window.confirm("Do you want to delete this account?")){
+            this.deleteAcc(id)
+        };
     }
 
     render() {
@@ -70,7 +77,7 @@ class Detail extends Component {
                             <span>
                                 <Tag color="green"><Link to={"detail/" + record.id}>View</Link></Tag>
                                 <Divider type="vertical" />
-                                <Tag color="red"  onClick={() => this.deleteAcc(record.id)}>Delete</Tag>
+                                <Tag color="red"  onClick={()=>this.confirmDelete(record.id)}>Delete</Tag>
                             </span>
                         )}
                         />

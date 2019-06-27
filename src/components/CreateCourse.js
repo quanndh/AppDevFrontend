@@ -60,7 +60,7 @@ class CreateCourse extends Component {
                     }, {
                         withCredentials: true
                     })
-                    .then(data => console.log(data))
+                    .then(data => alert("Course " + values.name + " created"))
                     .catch(err => console.log(err))
                     
                 }}

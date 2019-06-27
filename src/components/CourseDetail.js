@@ -253,7 +253,10 @@ class CourseDetail extends Component {
                                         <span>
                                             <Tag color="green"><Link replace to={"/detail/" + record._id} >View</Link></Tag>
                                             <Divider type="vertical" />
-                                            <Tag color="red"  onClick={() => this.deleteAcc(record._id)}>Delete</Tag>
+                                            {
+                                                this.props.user.role !== "trainer" && <Tag color="red"  onClick={() => this.deleteAcc(record._id)}>Delete</Tag>
+                                            }
+                                            
                                         </span>
                                     )}
                                     />
